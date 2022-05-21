@@ -1,7 +1,17 @@
 body {
   margin: 0;
   font-family: "Inter";
+  color: #484954;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.center-child-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+}
