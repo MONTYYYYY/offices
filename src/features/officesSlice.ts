@@ -8,7 +8,24 @@ export interface IOfficesState {
 }
 
 const initialState:IOfficesState = {
-  offices: [],
+  offices: [
+    {
+      companyName: 'Company A',
+      staffCount: 4,
+      email: 'companyA@gmail.com',
+      phone: '+123323232',
+      location: 'South Bob',
+      officeCapacity: 10,
+    },
+    {
+      companyName: 'Company B',
+      staffCount: 2,
+      email: 'companyb@gmail.com',
+      phone: '+123323232',
+      location: 'South Bob',
+      officeCapacity: 5,
+    },
+  ],
   filteredOffices: [],
   query: '',
 };
