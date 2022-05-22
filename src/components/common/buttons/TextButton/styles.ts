@@ -11,9 +11,9 @@ interface IButtonProps {
   fontWeight?: number|string;
 }
 
-export const Button = styled.button<IButtonProps>`
-  min-width: 100px;
+const Button = styled.button<IButtonProps>`
   padding : 5px;
+  height: fit-content;
   margin: ${(props) => props.margin || 'none'};
   font-weight: ${(props) => props.fontWeight || 'normal'};
   cursor:pointer;

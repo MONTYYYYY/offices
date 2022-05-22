@@ -7,10 +7,17 @@ const Container = styled.div`
     flex-direction: column;
     background: #EEF3F6;
     display:flex;
-    padding-top:20px;
+    padding: 20px 10px;
+`;
+
+const AddButtonContainer = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
 `;
 const LandingStyles = {
   Container,
+  AddButtonContainer,
 };
 
 export default LandingStyles;

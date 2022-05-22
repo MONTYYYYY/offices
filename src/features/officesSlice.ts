@@ -1,29 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../redux/store';
 
+export interface IOfficeInformation {
+  id : string;
+  companyName: string;
+  staffCount : number;
+  email : string;
+  phone : string;
+  location :string;
+  officeCapacity: number;
+  color: string;
+}
+
 export interface IOfficesState {
-    offices: any[];
-    filteredOffices: any[];
+    offices: IOfficeInformation[];
+    filteredOffices: IOfficeInformation[];
     query: string;
 }
 
 const initialState:IOfficesState = {
   offices: [
     {
+      id: 'A1',
       companyName: 'Company A',
       staffCount: 4,
       email: 'companyA@gmail.com',
       phone: '+123323232',
       location: 'South Bob',
       officeCapacity: 10,
+      color: 'blue',
     },
     {
+      id: 'A2',
       companyName: 'Company B',
       staffCount: 2,
       email: 'companyb@gmail.com',
       phone: '+123323232',
       location: 'South Bob',
       officeCapacity: 5,
+      color: 'yellow',
     },
   ],
   filteredOffices: [],

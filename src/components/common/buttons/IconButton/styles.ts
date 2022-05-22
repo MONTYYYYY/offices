@@ -12,21 +12,25 @@ interface IButtonProps {
 }
 
 const Button = styled.button<IButtonProps>`
-  background: ${(props) => props.background || Theme.COLORS.primary};
-  color: ${(props) => props.color || 'white'};
-  height: ${(props) => props.height || 48}px;
-  min-width: ${(props) => props.width || 232}px;
-  margin: ${(props) => props.margin || 'none'};
+  width: ${(props) => props.width || '64'}px;
+  height:  ${(props) => props.height || '64'}px;
+  padding : 5px;
+  margin: ${(props) => props.margin || 'unset'};
   font-weight: ${(props) => props.fontWeight || 'normal'};
-  box-shadow: ${(props) => props.boxShadow || '0px 2px 10px #0000001A'};
   cursor:pointer;
   border:none;
-  border-radius:40px;
+  background:${(props) => props.background || '#0D4477'} ;
+  border-radius:50%;
+  
+  &.selected {
+    border: 4px solid #475569;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
   &:hover {
     color: ${Theme.COLORS.primary};
-    background:white;
-    border: 2px solid ${Theme.COLORS.primary};
   }
+
   * {
     :hover {
       cursor: pointer;

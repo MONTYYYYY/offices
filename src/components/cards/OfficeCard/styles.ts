@@ -12,9 +12,13 @@ const Container = styled.div`
     }
     margin:10px 0px;
 `;
-const ColorContainer = styled.div`
+interface IColorContainerProps {
+    background?: string;
+}
+
+const ColorContainer = styled.div<IColorContainerProps>`
     width: 12px;
-    background: black;
+    background: ${(props) => props.background || 'black'};
     border-radius: 8px 0px 0px 8px;
 `;
 const ContentContainer = styled.div`

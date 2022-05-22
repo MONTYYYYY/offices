@@ -8,28 +8,37 @@ const Body = styled.main`
 `;
 
 const Header = styled.header`
+    display:flex;
     flex:1;
     width: 100%;
+    position: sticky;
+    top:0;
+    background: #EEF3F6;
 `;
-
+const HeaderTitle = styled.h3`
+  font-weight: 500;
+  margin-left: 100px;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  white-space: nowrap;
+`;
 const Bottom = styled.div`
     flex:10;
-    background: #D8D8D8;
+    background: #EEF3F6;
 `;
 
-const Logo = styled.img`
-  width: 116.85px;
-  height: 24.44px;
-  position: absolute;
-  top: 2%;
-  left: 2%;
+const BackButtonIcon = styled.img`
+
 `;
 
 const HeaderStyles = {
   Header,
-  Logo,
+  BackButtonIcon,
   Body,
   Bottom,
+  HeaderTitle,
 };
 
 export default HeaderStyles;
