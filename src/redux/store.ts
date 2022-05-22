@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import officesReducer from '../features/officesSlice';
+import settingsReducer from '../features/settingsSlice';
 
 export const store = configureStore({
   reducer: {
     offices: officesReducer,
+    settings: settingsReducer,
   },
 });
 

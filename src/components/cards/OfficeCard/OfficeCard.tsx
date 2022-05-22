@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import OfficeCardStyles from './styles';
 import Images from '../../../assets/index';
 import Buttons from '../../common/buttons/index';
+import { IOfficeInformation } from '../../../features/officesSlice';
+import { RouteList } from '../../../routes';
 
-interface IOfficeInformation {
-    companyName: string;
-    staffCount : number;
-    email : string;
-    phone : string;
-    location :string;
-    officeCapacity: number;
-}
 interface IOfficeCardProps {
   data : IOfficeInformation
 }
 
 function OfficeCard({ data } :IOfficeCardProps) {
   const [showMoreDetails, setShowMoreDetails] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const toggleDisplayMoreDetails = () => setShowMoreDetails((currentValue) => !currentValue);
 
+  const handleClickEdit = (id: string) => {
+    navigate(`${RouteList.EditOffice.replace(':id', id)}`);
+  };
+
   return (
     <OfficeCardStyles.Container>
-      <OfficeCardStyles.ColorContainer />
+      <OfficeCardStyles.ColorContainer background={data.color} />
       <OfficeCardStyles.ContentContainer>
         <OfficeCardStyles.ContentHeaderContainer>
           <OfficeCardStyles.CompanyName>
             {data.companyName}
           </OfficeCardStyles.CompanyName>
-          <OfficeCardStyles.EditButton>
+          <OfficeCardStyles.EditButton onClick={() => handleClickEdit('1')}>
             <img src={Images.EditPen} alt="Edit Icon" />
           </OfficeCardStyles.EditButton>
         </OfficeCardStyles.ContentHeaderContainer>
