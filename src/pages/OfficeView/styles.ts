@@ -8,6 +8,7 @@ const Container = styled.div`
     display:flex;
     flex-direction: column;
     padding-top:20px;
+    align-items: center;
 `;
 interface IProfileImageProps {
   width? : number;
