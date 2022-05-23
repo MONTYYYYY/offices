@@ -17,7 +17,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - I hardcoded the intial data for Staff and Offices. 
 
 ## Issues
-Issues there were no designs for tablet and Desktop. Therefore I was no sure of expected output. I tried to make it look as nice as possible.
+- There were no designs for tablet and Desktop. Therefore I was no sure of expected output. I tried to make it look as nice as possible.
+
 There were also a 2 design mistakes i noticed on the figma : Examples are 
 - 'Are you sure you want to Delete Staff Member?' has incorrect button names 'Keep Office' and 'Delete Office'.
 - The number of avatars icons on the edit or add staff modal does not match the total avatars provided on design.
