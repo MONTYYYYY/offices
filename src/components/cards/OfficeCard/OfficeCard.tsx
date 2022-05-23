@@ -20,6 +20,10 @@ function OfficeCard({ data } :IOfficeCardProps) {
     navigate(`${RouteList.EditOffice.replace(':id', id)}`);
   };
 
+  const handleContainerClick = (id: string) => {
+    navigate(`${RouteList.OfficeView.replace(':id', id)}`);
+  };
+
   return (
     <OfficeCardStyles.Container>
       <OfficeCardStyles.ColorContainer background={data.color} />
@@ -28,15 +32,15 @@ function OfficeCard({ data } :IOfficeCardProps) {
           <OfficeCardStyles.CompanyName>
             {data.companyName}
           </OfficeCardStyles.CompanyName>
-          <OfficeCardStyles.EditButton onClick={() => handleClickEdit('1')}>
+          <OfficeCardStyles.EditButton onClick={() => handleClickEdit(data.id)}>
             <img src={Images.EditPen} alt="Edit Icon" />
           </OfficeCardStyles.EditButton>
         </OfficeCardStyles.ContentHeaderContainer>
         <OfficeCardStyles.ContentBottomContainer>
-          <OfficeCardStyles.MemberCountContainer>
+          <OfficeCardStyles.MemberCountContainer onClick={() => handleContainerClick(data.id)}>
             <span className="center-child-items">
               <img src={Images.People} alt="People" />
-              <b className="member-count">{data.staffCount}</b>
+              <b className="member-count">{data.staffIDs.length}</b>
               <label htmlFor="member-count-text">Staff Members in Office</label>
             </span>
           </OfficeCardStyles.MemberCountContainer>
@@ -66,7 +70,11 @@ function OfficeCard({ data } :IOfficeCardProps) {
             <OfficeCardStyles.MoreContentItemContainer>
               <span className="center-child-items">
                 <img className="content-item-icon" src={Images.People} alt="OfficeCapacity" />
-                <label>{data.officeCapacity}</label>
+                <label>
+                  Office Capacity:
+                  {' '}
+                  {data.officeCapacity}
+                </label>
               </span>
             </OfficeCardStyles.MoreContentItemContainer>
             <OfficeCardStyles.MoreContentItemContainer>

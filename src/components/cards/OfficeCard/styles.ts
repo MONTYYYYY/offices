@@ -7,9 +7,6 @@ const Container = styled.div`
     background: #FFFFFF;
     border: 1px solid #E8F3FC;
     border-radius: 8px;
-    &:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    }
     margin:10px 0px;
 `;
 interface IColorContainerProps {
@@ -41,7 +38,7 @@ const CompanyName = styled.b`
     text-transform: capitalize;
 `;
 
-const EditButton = styled.button`
+export const EditButton = styled.button`
     cursor: pointer;
     background: none;
     border: none;
@@ -54,11 +51,20 @@ const ContentBottomContainer = styled.div`
     width: 100%;
 `;
 
-const MemberCountContainer = styled.div`
+const MemberCountContainer = styled.button`
     display:flex;
+    background:none;
+    border:none;
     margin: 10px 0px;
+    width: 100%;
+    :hover {
+      background : rgb(72, 73, 84, 0.1);
+    }
     .member-count {
         margin: 0px 5px;
+    }
+    * {
+       cursor: pointer;
     }
 `;
 
@@ -85,7 +91,7 @@ const MoreContentItemContainer = styled.div`
     display:flex;
     margin: 8px 0px;
     .content-item-icon {
-        margin: 0px 5px;
+        margin: 0px 10px;
     }
 `;
 const OfficeCardStyles = {

@@ -15,6 +15,11 @@ const Container = styled.div`
     }
 `;
 
+const FormContainer = styled.form`
+    display:flex;
+    flex-direction: column;
+`;
+
 const OfficeColorsContainer = styled.div`
     width:100%;
     display:flex;
@@ -30,6 +35,7 @@ const EditButtonGroupContainer = styled.div`
     margin-top: 20px;
 `;
 const OfficeStyles = {
+  FormContainer,
   Container,
   OfficeColorsContainer,
   EditButtonGroupContainer,

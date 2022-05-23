@@ -22,6 +22,7 @@ const Button = styled.button<IButtonProps>`
   cursor:pointer;
   border:none;
   border-radius:40px;
+  text-transform: uppercase;
   &:hover {
     color: ${Theme.COLORS.primary};
     background:white;

@@ -1,21 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import EditOfficeStyles from './styles';
-import { IOfficeInformation } from '../../../features/officesSlice';
+import {
+  IOfficeInformation, removeOffice, selectOffices, updateOffice,
+} from '../../../features/officesSlice';
 import Input from '../../../components/common/Input/styles';
 import Buttons from '../../../components/common/buttons';
+import { useAppDispatch, useAppSelector } from '../../../constants/helpers/hooks';
+import OfficeColorSelect from '../../../components/officeColorSelect/OfficeColorSelect';
+import { RouteList } from '../../../routes';
 
 function EditOffice() {
-  const [office, setOffice] = useState<IOfficeInformation>({} as IOfficeInformation);
-  const colorIconHeightPx = 24;
-  const colorIconWidthPx = 24;
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [selectedColor, setSelectedColor] = useState<string>('');
+  const { offices } = useAppSelector(selectOffices);
+  const { id } = useParams();
+  const selectedOffice = offices.find((office) => office.id === id);
+  const [office, setOffice] = useState<IOfficeInformation>(selectedOffice || {} as IOfficeInformation);
+
+  useEffect(() => {
+    setOffice({ ...office, color: selectedColor });
+  }, [selectedColor]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
     const { name } = e.target;
 
     switch (name) {
-      case 'title':
+      case 'companyName':
         // Capitalize 1st letter
-        value = ((value?.charAt(0) || '').toLocaleUpperCase() + value.slice(1))?.replace(/[^A-Za-z]/g, '');
+        value = ((value?.charAt(0) || '').toLocaleUpperCase() + value.slice(1));
         break;
       case 'email':
         value = value.toLocaleLowerCase()?.trim();
@@ -29,68 +44,68 @@ function EditOffice() {
     }
     setOffice({ ...office, [name]: value });
   };
+
+  const handleDeleteOffice = () => {
+    if (id) {
+      dispatch(removeOffice(id));
+      navigate(RouteList.Landing);
+    }
+  };
+
+  const handleUpdateOffice = () => {
+    if (id && office) {
+      dispatch(updateOffice({ officeId: id, officeItem: office }));
+    }
+  };
+
   return (
     <EditOfficeStyles.Container>
       <div>
-        <div>
+        <EditOfficeStyles.FormContainer>
           <Input
             name="companyName"
             type="text"
             value={office?.companyName}
-            placeholder="Enter Company Name"
-            onChange={(e) => handleInputChange(e)}
-          />
-          <Input
-            name="email"
-            type="email"
-            value={office?.email}
-            placeholder="Enter Email"
+            placeholder="Office Name"
             onChange={(e) => handleInputChange(e)}
           />
           <Input
             name="location"
             type="text"
             value={office?.location}
-            placeholder="Enter Location"
+            placeholder="Physical Address"
             onChange={(e) => handleInputChange(e)}
           />
           <Input
-            name="location"
+            name="phone"
             type="text"
-            value={office?.officeCapacity}
-            placeholder="Enter Office Capacity"
+            value={office?.phone}
+            placeholder="Phone Number"
             onChange={(e) => handleInputChange(e)}
           />
           <Input
-            name="staffCount"
-            type="number"
-            value={office?.staffCount}
-            placeholder="Enter Staff Count"
+            name="email"
+            type="email"
+            value={office?.email}
+            placeholder="Email Address"
             onChange={(e) => handleInputChange(e)}
           />
-        </div>
+          <Input
+            name="officeCapacity"
+            type="number"
+            value={office?.officeCapacity}
+            placeholder="Maximum Capacity"
+            onChange={(e) => handleInputChange(e)}
+          />
+        </EditOfficeStyles.FormContainer>
         <b> Office Color </b>
-        <EditOfficeStyles.OfficeColorsContainer>
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="blue" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="blue" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="blue" />
-        </EditOfficeStyles.OfficeColorsContainer>
-        <EditOfficeStyles.OfficeColorsContainer>
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-        </EditOfficeStyles.OfficeColorsContainer>
+        <OfficeColorSelect setSelectedParentColor={setSelectedColor} selectedParentColor={office.color} />
       </div>
       <EditOfficeStyles.EditButtonGroupContainer>
-        <Buttons.PrimaryButton>
+        <Buttons.PrimaryButton onClick={handleUpdateOffice}>
           Update Office
         </Buttons.PrimaryButton>
-        <Buttons.TextButton>
+        <Buttons.TextButton onClick={handleDeleteOffice}>
           Delete Office
         </Buttons.TextButton>
       </EditOfficeStyles.EditButtonGroupContainer>
