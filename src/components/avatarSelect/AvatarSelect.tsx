@@ -12,13 +12,11 @@ function AvatarSelect({ selectedParentAvatar, setSelectedParentAvatar }:IAvatarS
     setSelectedAvatar(name);
     setSelectedParentAvatar(name);
   };
-  console.log('selectedAvatar', selectedAvatar);
   return (
     <AvatarSelectStyles.Container>
       <AvatarSelectStyles.AvatarsContainer>
         {
         Object.entries(Avatars).map((avatar) => {
-          console.log('avatar', avatar);
           const [avatarKey, avatarSrc] = avatar;
           return (
             <AvatarSelectStyles.AvatarButtonOuterContainer key={avatarKey}>
