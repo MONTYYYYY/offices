@@ -33,10 +33,11 @@ function AddOffice() {
         office.color,
         office.companyName,
         office.location,
+        office.officeCapacity,
         office.phone,
         office.email,
       ];
-      setDisplayAddActionButton(mandatoryValues.every((x) => x.length > 0));
+      setDisplayAddActionButton(mandatoryValues.every((x) => (x || '').toString().length > 0));
     }
   }, [office]);
 

@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '../../../constants/helpers/hooks
 import OfficeColorSelect from '../../../components/officeColorSelect/OfficeColorSelect';
 import { RouteList } from '../../../routes';
 import { ColourTitle } from '../AddOffice/styles';
+import Theme from '../../../constants/theme';
 
 function EditOffice() {
   const navigate = useNavigate();
@@ -19,6 +20,22 @@ function EditOffice() {
   const { id } = useParams();
   const selectedOffice = offices.find((office) => office.id === id);
   const [office, setOffice] = useState<IOfficeInformation>(selectedOffice || {} as IOfficeInformation);
+  const [displayNextActionButton, setDisplayAddActionButton] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Check if all values are filled
+    if (Object.values(office).length > 0) {
+      const mandatoryValues = [
+        office.color,
+        office.companyName,
+        office.location,
+        office.officeCapacity,
+        office.phone,
+        office.email,
+      ];
+      setDisplayAddActionButton(mandatoryValues.every((x) => (x || '').toString().length > 0));
+    }
+  }, [office]);
 
   useEffect(() => {
     setOffice({ ...office, color: selectedColor });
@@ -108,10 +125,12 @@ function EditOffice() {
         <OfficeColorSelect setSelectedParentColor={setSelectedColor} selectedParentColor={office.color} />
       </div>
       <EditOfficeStyles.EditButtonGroupContainer>
+        {displayNextActionButton && (
         <Buttons.PrimaryButton onClick={handleUpdateOffice}>
           Update Office
         </Buttons.PrimaryButton>
-        <Buttons.TextButton onClick={handleDeleteOffice}>
+        )}
+        <Buttons.TextButton color={Theme.COLORS.primary} onClick={handleDeleteOffice}>
           Delete Office
         </Buttons.TextButton>
       </EditOfficeStyles.EditButtonGroupContainer>
