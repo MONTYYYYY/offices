@@ -29,6 +29,9 @@ const ColorButtonContainer = styled.div`
      background: none;
      border:none;
      border-radius: 50%;
+     justify-content: center;
+     display: flex;
+     margin: 10px 0px;
      * {
         cursor: pointer;
      }
