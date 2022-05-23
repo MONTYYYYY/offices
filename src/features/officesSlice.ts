@@ -2,6 +2,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../redux/store';
 
+export const OFFICE_COLORS: string[] = [
+  '#FFBE0B',
+  '#FF9B71',
+  '#FB5607',
+  '#97512C',
+  '#FF006E',
+  '#A9F0D1',
+  '#00B402',
+  '#489DDA',
+  '#0072E8',
+  '#8338EC',
+];
+
 export interface IOfficeInformation {
   id : string;
   companyName: string;
@@ -84,11 +97,8 @@ export const officesSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    setFilteredOffices: (state, newState) => {
-      state.filteredOffices = [].concat(...newState.payload);
-    },
-    setQuery: (state, newState) => {
-      state.query = newState.payload;
+    addOffice: (state, { payload }: PayloadAction<IOfficeInformation>) => {
+      state.offices = state.offices.concat([payload]);
     },
     addStaffToOffice: (state, { payload }: PayloadAction<IAddStaffToOfficePayload>) => {
       const index = state.offices.findIndex((selectedOffice) => selectedOffice.id === payload.officeId);
@@ -119,10 +129,9 @@ export const officesSlice = createSlice({
 });
 
 export const {
-  setFilteredOffices,
-  setQuery,
   addStaffToOffice,
   removeStaffFromOffice,
+  addOffice,
   updateOffice,
   removeOffice,
 } = officesSlice.actions;

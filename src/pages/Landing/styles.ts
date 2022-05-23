@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import SCREEN_SIZES from '../../constants/MediaQueries';
 
 const Container = styled.div`
     height:100%;
@@ -17,6 +18,23 @@ const Container = styled.div`
     }
 `;
 
+export const OfficeCardsContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  @media (min-width: ${SCREEN_SIZES.LAPTOP_MIN}px){
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+  @media (max-width: ${SCREEN_SIZES.TABLET_MAX}px){
+    align-items : center;
+    flex-direction: column;
+  }
+
+`;
+
 export const AddButtonContainer = styled.div`
   position: absolute;
   right: 6%;
@@ -24,6 +42,7 @@ export const AddButtonContainer = styled.div`
 `;
 const LandingStyles = {
   Container,
+  OfficeCardsContainer,
   AddButtonContainer,
 };
 

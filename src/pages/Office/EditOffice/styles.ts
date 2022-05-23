@@ -29,11 +29,11 @@ const OfficeColorsContainer = styled.div`
 `;
 
 const EditButtonGroupContainer = styled.div`
-    width:100%;
     display:flex;
     flex-direction: column;
     margin-top: 20px;
 `;
+
 const OfficeStyles = {
   FormContainer,
   Container,

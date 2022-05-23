@@ -9,6 +9,7 @@ import Buttons from '../../../components/common/buttons';
 import { useAppDispatch, useAppSelector } from '../../../constants/helpers/hooks';
 import OfficeColorSelect from '../../../components/officeColorSelect/OfficeColorSelect';
 import { RouteList } from '../../../routes';
+import { ColourTitle } from '../AddOffice/styles';
 
 function EditOffice() {
   const navigate = useNavigate();
@@ -55,13 +56,18 @@ function EditOffice() {
   const handleUpdateOffice = () => {
     if (id && office) {
       dispatch(updateOffice({ officeId: id, officeItem: office }));
+      navigate(RouteList.Landing);
     }
+  };
+
+  const onSubmit = (event:any) => {
+    event.preventDefault();
   };
 
   return (
     <EditOfficeStyles.Container>
       <div>
-        <EditOfficeStyles.FormContainer>
+        <EditOfficeStyles.FormContainer onSubmit={onSubmit}>
           <Input
             name="companyName"
             type="text"
@@ -98,7 +104,7 @@ function EditOffice() {
             onChange={(e) => handleInputChange(e)}
           />
         </EditOfficeStyles.FormContainer>
-        <b> Office Color </b>
+        <ColourTitle> Office Colour </ColourTitle>
         <OfficeColorSelect setSelectedParentColor={setSelectedColor} selectedParentColor={office.color} />
       </div>
       <EditOfficeStyles.EditButtonGroupContainer>

@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import SCREEN_SIZES from '../../../constants/MediaQueries';
 
 const Container = styled.div`
     display:flex;
@@ -8,6 +9,10 @@ const Container = styled.div`
     border: 1px solid #E8F3FC;
     border-radius: 8px;
     margin:10px 0px;
+
+    @media (min-width: ${SCREEN_SIZES.LAPTOP_MIN}px){
+      margin:20px;
+    }
 `;
 interface IColorContainerProps {
     background?: string;

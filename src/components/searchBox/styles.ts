@@ -14,6 +14,18 @@ const SearchInput = styled.input`
     box-sizing: border-box;
     border: 1px solid #F1F9FF;
     border-radius: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1E293B;
+
+    ::placeholder,  :-ms-input-placeholder,  ::-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      font-size: 16px;
+      line-height: 24px;
+      color: #1E293B !important;
+    }
+
+
 `;
 
 const SearchBoxStyles = {

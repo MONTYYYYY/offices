@@ -68,12 +68,6 @@ export const staffSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    setFilteredStaff: (state, newState) => {
-      state.filteredStaff = [].concat(...newState.payload);
-    },
-    setQuery: (state, newState) => {
-      state.query = newState.payload;
-    },
     editStaff: (state, { payload }: PayloadAction<IEditStaffPayload>) => {
       const index = state.staff.findIndex((selectedStaff) => selectedStaff.id === payload.staffId);
       const newStaff = [...state.staff];
@@ -89,7 +83,7 @@ export const staffSlice = createSlice({
 });
 
 export const {
-  setFilteredStaff, setQuery, editStaff, addStaff,
+  editStaff, addStaff,
 } = staffSlice.actions;
 
 export const selectStaff = (state: RootState) => state.staff;
