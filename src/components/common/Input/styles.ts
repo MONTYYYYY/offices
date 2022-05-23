@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import SCREEN_SIZES from '../../../constants/MediaQueries';
 
 const Input = styled.input`
   background: #ffffff;
@@ -12,6 +13,10 @@ const Input = styled.input`
   opacity: 1;
   font-size: 16px;
   line-height: 24px;
+
+  @media (min-width: ${SCREEN_SIZES.TABLET_MIN}px){
+      width: 100%;
+  }
 `;
 
 export default Input;
