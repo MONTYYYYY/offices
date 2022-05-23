@@ -15,6 +15,16 @@ const Container = styled.div`
       top: 0;
       background: #eef3f6;
       padding: 10px 0px;
+      width: 342px;
+    }
+
+    .page-title {
+      @media (max-width: ${SCREEN_SIZES.TABLET_MAX}px){
+        align-self : center;
+      }
+      @media (min-width: ${SCREEN_SIZES.LAPTOP_MIN}px){
+        margin-left: 20px;
+      }
     }
 `;
 
