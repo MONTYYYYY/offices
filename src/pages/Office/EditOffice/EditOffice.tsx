@@ -55,6 +55,7 @@ function EditOffice() {
   const handleUpdateOffice = () => {
     if (id && office) {
       dispatch(updateOffice({ officeId: id, officeItem: office }));
+      navigate(RouteList.Landing);
     }
   };
 
