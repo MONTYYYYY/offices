@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import SCREEN_SIZES from '../constants/MediaQueries';
 
 const Body = styled.main`
     display:flex;
@@ -34,8 +35,22 @@ const BackButtonIcon = styled.img`
 
 `;
 
+const HeaderGroup = styled.span`
+ display:flex;
+
+ @media (max-width: ${SCREEN_SIZES.MOBILE_MAX}px){
+    width: 233px;
+ }
+ @media (min-width: ${SCREEN_SIZES.TABLET_MIN}px){
+    align-self: center;
+    width: 85%;
+ }
+
+`;
+
 const HeaderStyles = {
   Header,
+  HeaderGroup,
   BackButtonIcon,
   Body,
   Bottom,

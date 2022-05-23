@@ -16,12 +16,12 @@ function Header({ title = '', component: Component }:IHeaderProps) {
   return (
     <HeaderStyles.Body>
       <HeaderStyles.Header>
-        <div className="d-flex center-child-items">
+        <HeaderStyles.HeaderGroup className="center-child-items">
           <Buttons.TextButton onClick={handleNavigateBack}>
             <HeaderStyles.BackButtonIcon src={Images.ArrowLeft} />
           </Buttons.TextButton>
           <HeaderStyles.HeaderTitle>{title}</HeaderStyles.HeaderTitle>
-        </div>
+        </HeaderStyles.HeaderGroup>
       </HeaderStyles.Header>
       <HeaderStyles.Bottom>
         <Component />
