@@ -1,4 +1,4 @@
-import Search from './search.png';
+import Search from './search.svg';
 import EditPen from './edit_pen.svg';
 import People from './people.svg';
 import Location from './location.svg';
