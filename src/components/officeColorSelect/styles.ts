@@ -1,10 +1,14 @@
 import styled from 'styled-components/macro';
+import SCREEN_SIZES from '../../constants/MediaQueries';
 
 const Container = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    @media (max-width: ${SCREEN_SIZES.MOBILE_MAX}px){
+      width : 324px;
+    }
 `;
 
 const ColorsContainer = styled.span`
