@@ -20,7 +20,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path={RouteList.Landing} element={<Layouts.PlainLayout component={LandingPage} />} />
-        <Route path={RouteList.OfficeView} element={<Layouts.PlainLayout component={OfficeViewPage} />} />
+        <Route path={RouteList.OfficeView} element={<Layouts.HeaderLayout title="Office" component={OfficeViewPage} />} />
         <Route path={RouteList.AddOffice} element={<Layouts.HeaderLayout title="Add Office" component={AddOfficePage} />} />
         <Route path={RouteList.EditOffice} element={<Layouts.HeaderLayout title="Edit Office" component={EditOfficePage} />} />
       </Routes>

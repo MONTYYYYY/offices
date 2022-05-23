@@ -15,6 +15,11 @@ const Container = styled.div`
     }
 `;
 
+const FormContainer = styled.form`
+    display:flex;
+    flex-direction: column;
+`;
+
 const OfficeColorsContainer = styled.div`
     width:100%;
     display:flex;
@@ -33,6 +38,7 @@ const OfficeStyles = {
   Container,
   OfficeColorsContainer,
   AddButtonContainer,
+  FormContainer,
 };
 
 export default OfficeStyles;

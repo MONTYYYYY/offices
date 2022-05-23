@@ -5,6 +5,7 @@ const Body = styled.main`
     flex-direction:column;
     height:100vh;
     width:100vw;
+    overflow-y: scroll;
 `;
 
 const Header = styled.header`

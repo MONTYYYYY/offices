@@ -24,14 +24,14 @@ export interface IModalType {
 interface IDisplayModal {
   type?: ModalTypes;
   option: DisplayedModalOptions;
-  entityProfileId?: string | number | null;
+  payload?: string | number | null | any;
 }
 export interface ISettingsState {
   displayedModal : IDisplayModal;
 }
 
 const initialState: ISettingsState = {
-  displayedModal: { option: DisplayedModalOptions.none, entityProfileId: null },
+  displayedModal: { option: DisplayedModalOptions.none, payload: null },
 };
 
 // The function below is called a thunk and allows us to perform async logic. It

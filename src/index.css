@@ -15,3 +15,7 @@ body {
 .d-flex {
   display: flex;
 }
+
+.capitalize-text {
+  text-transform: capitalize;
+}

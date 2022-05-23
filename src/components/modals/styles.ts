@@ -7,17 +7,16 @@ interface IContainerProps {
 
 const Container = styled.div<IContainerProps>`
     position: fixed;
-    padding: ${(props) => props.padding || 84}px;
-    width: 100%;
-    top: 25%;
-    bottom: 15%;
-    left: 10%;
+    padding: ${(props) => props.padding || 20}px;
+    top: 20%;
+    margin: 0px 2%;
     z-index:100;
     overflow:scroll;
     /* background */
     background: #F9F9F9;
     box-shadow: 0px 9.19786px 13.7968px rgba(0, 0, 0, 0.06);
     border-radius: 16.0962px;
+
     .top {
         display:flex;
         justify-content:space-between;
@@ -37,13 +36,6 @@ const Container = styled.div<IContainerProps>`
           cursor:pointer;
         }
     }
-    .ant-upload {
-      img {
-        width:100%;
-        height:100%;
-      }
-    }
-
 `;
 export const OverLay = styled.div` 
     position: fixed;
@@ -51,7 +43,7 @@ export const OverLay = styled.div`
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(48, 43, 112, 0.2);
+    background: rgba(150, 157, 169,0.2);
     z-index: 50;
     overflow:scroll;
 `;

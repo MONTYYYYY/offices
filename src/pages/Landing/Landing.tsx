@@ -17,7 +17,7 @@ function Landing() {
   };
   return (
     <LandingStyles.Container>
-      <h1>All Offices</h1>
+      <h1 className="page-title">All Offices</h1>
       {
         offices.map((office) => (
           <Cards.OfficeCard key={office.email} data={office} />

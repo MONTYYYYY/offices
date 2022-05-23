@@ -3,19 +3,20 @@ import AddOfficeStyles from './styles';
 import { IOfficeInformation } from '../../../features/officesSlice';
 import Input from '../../../components/common/Input/styles';
 import Buttons from '../../../components/common/buttons';
+import OfficeColorSelect from '../../../components/officeColorSelect/OfficeColorSelect';
 
 function AddOffice() {
   const [office, setOffice] = useState<IOfficeInformation>({} as IOfficeInformation);
-  const colorIconHeightPx = 24;
-  const colorIconWidthPx = 24;
+  const [selectedColor, setSelectedColor] = useState<string>('');
+  console.log('Add Office', selectedColor);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
     const { name } = e.target;
 
     switch (name) {
-      case 'title':
+      case 'companyName':
         // Capitalize 1st letter
-        value = ((value?.charAt(0) || '').toLocaleUpperCase() + value.slice(1))?.replace(/[^A-Za-z]/g, '');
+        value = ((value?.charAt(0) || '').toLocaleUpperCase() + value.slice(1));
         break;
       case 'email':
         value = value.toLocaleLowerCase()?.trim();
@@ -32,59 +33,45 @@ function AddOffice() {
   return (
     <AddOfficeStyles.Container>
       <div>
-        <div>
+        <AddOfficeStyles.FormContainer>
           <Input
             name="companyName"
             type="text"
             value={office?.companyName}
-            placeholder="Enter Company Name"
-            onChange={(e) => handleInputChange(e)}
-          />
-          <Input
-            name="email"
-            type="email"
-            value={office?.email}
-            placeholder="Enter Email"
+            placeholder="Office Name"
             onChange={(e) => handleInputChange(e)}
           />
           <Input
             name="location"
             type="text"
             value={office?.location}
-            placeholder="Enter Location"
+            placeholder="Physical Address"
+            onChange={(e) => handleInputChange(e)}
+          />
+          <Input
+            name="email"
+            type="email"
+            value={office?.email}
+            placeholder="Email Address"
+            onChange={(e) => handleInputChange(e)}
+          />
+          <Input
+            name="phone"
+            type="text"
+            value={office?.phone}
+            placeholder="Phone Number"
             onChange={(e) => handleInputChange(e)}
           />
           <Input
             name="location"
             type="text"
             value={office?.officeCapacity}
-            placeholder="Enter Office Capacity"
+            placeholder="Maximum Capacity"
             onChange={(e) => handleInputChange(e)}
           />
-          <Input
-            name="staffCount"
-            type="number"
-            value={office?.staffCount}
-            placeholder="Enter Staff Count"
-            onChange={(e) => handleInputChange(e)}
-          />
-        </div>
+        </AddOfficeStyles.FormContainer>
         <b> Office Color </b>
-        <AddOfficeStyles.OfficeColorsContainer>
-          <Buttons.IconButton className="selected" width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="blue" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="blue" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="blue" />
-        </AddOfficeStyles.OfficeColorsContainer>
-        <AddOfficeStyles.OfficeColorsContainer>
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="yellow" />
-          <Buttons.IconButton width={colorIconHeightPx} height={colorIconWidthPx} background="red" />
-        </AddOfficeStyles.OfficeColorsContainer>
+        <OfficeColorSelect setSelectedParentColor={setSelectedColor} selectedParentColor="" />
       </div>
       <AddOfficeStyles.AddButtonContainer>
         <Buttons.PrimaryButton>
