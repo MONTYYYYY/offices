@@ -18,6 +18,17 @@ const Container = styled.div`
 const FormContainer = styled.form`
     display:flex;
     flex-direction: column;
+    align-items: center;
+`;
+
+export const ColourTitle = styled.span`
+    align-self: flex-start;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    color: #000000;
 `;
 
 const OfficeColorsContainer = styled.div`
@@ -39,6 +50,7 @@ const OfficeStyles = {
   OfficeColorsContainer,
   AddButtonContainer,
   FormContainer,
+  ColourTitle,
 };
 
 export default OfficeStyles;
