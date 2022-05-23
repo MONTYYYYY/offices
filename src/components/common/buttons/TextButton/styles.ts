@@ -14,6 +14,7 @@ interface IButtonProps {
 const Button = styled.button<IButtonProps>`
   padding : 5px;
   height: fit-content;
+  color: ${(props) => props.color || 'inherit'};
   margin: ${(props) => props.margin || 'none'};
   font-weight: ${(props) => props.fontWeight || 'normal'};
   cursor:pointer;

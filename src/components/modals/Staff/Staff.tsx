@@ -16,6 +16,7 @@ import {
 } from '../../../features/staffSlice';
 import Input from '../../common/Input/styles';
 import AvatarSelect from '../../avatarSelect/AvatarSelect';
+import Theme from '../../../constants/theme';
 
 interface IStaffFormProps {
   staffDetails: IStaffInformation;
@@ -212,7 +213,7 @@ function Staff() {
             Edit Staff Member
           </Buttons.PrimaryButton>
 
-          <Buttons.TextButton className="delete-stuff-button capitalize-text" color="#489DDA" onClick={handleShowDeleteConfirmationBox}>
+          <Buttons.TextButton className="delete-stuff-button capitalize-text" color={Theme.COLORS.primary} onClick={handleShowDeleteConfirmationBox}>
             Delete Staff Member
           </Buttons.TextButton>
         </>

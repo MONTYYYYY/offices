@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import SCREEN_SIZES from '../../../constants/MediaQueries';
 
 const Container = styled.div`
     align-items : center;
@@ -36,6 +37,9 @@ const OfficeColorsContainer = styled.div`
     display:flex;
     button {
       margin: 20px 39px 20px 0px; 
+    }
+    @media (max-width: ${SCREEN_SIZES.MOBILE_MAX}px){
+      width : 324px;
     }
 `;
 
