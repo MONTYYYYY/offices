@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  
  - Figma : https://www.figma.com/file/zjxFBi6BYz33lIOvm0kufG/Intermediate-Tech-Assessment?node-id=2%3A1140
  - Ojective link : https://doc.clickup.com/2607467/p/h/2fjbb-6924/1724629f64756b8/2fjbb-6984
+ - Deployment Link (Hosted on Netflify) : https://specno-offices-montlamedi.netlify.app/ 
+ 
 
 ## Available Scripts
 
