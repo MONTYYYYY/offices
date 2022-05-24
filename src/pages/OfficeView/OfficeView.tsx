@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Cards from '../../components/cards';
 import SearchBox from '../../components/searchBox/SearchBox';
 import { useAppSelector, useAppDispatch } from '../../constants/helpers/hooks';
-import { selectOffices } from '../../features/officesSlice';
+import { selectOffices, IOfficeInformation } from '../../features/officesSlice';
 import OfficeViewStyles from './styles';
 import { Avatars, IStaffInformation, selectStaff } from '../../features/staffSlice';
 import Images from '../../assets';
@@ -21,13 +21,22 @@ function OfficeView() {
   const { id } = useParams();
   const [searchText, setSearchText] = useState<string>('');
 
-  const officeViewed = offices.find((office) => office.id === id) ?? null;
+  const [officeViewed, setOfficeViewed] = useState<null|IOfficeInformation>(null);
   const [staffInOffice, setStaffInOffice] = useState<IStaffInformation[]>([]);
   const [filteredStaff, setFilteredStaff] = useState<IStaffInformation[]>(staffInOffice);
+  const [hasReachedCapacity, setHasReachedCapacity] = useState<boolean>(false);
 
   useEffect(() => {
-    setStaffInOffice(staff.filter((x) => officeViewed?.staffIDs.includes(x.id)));
+    setStaffInOffice(staff.filter((x) => offices.find((office) => office.id === id)?.staffIDs.includes(x.id)));
   }, [offices, staff]);
+
+  useEffect(() => {
+    setOfficeViewed(offices.find((office) => office.id === id) ?? null);
+  }, [offices, id]);
+
+  useEffect(() => {
+    setHasReachedCapacity(officeViewed?.staffIDs.length.toString() === officeViewed?.officeCapacity.toString());
+  }, [officeViewed, officeViewed?.staffIDs]);
 
   const handleClickEdit = (staffId: string) => {
     dispatch(setDisplayedModal({ option: DisplayedModalOptions.STAFF, payload: { staffId, officeId: id }, type: 'edit' }));
@@ -87,11 +96,13 @@ function OfficeView() {
         }
       </OfficeViewStyles.StaffMembersContainer>
 
+      { !hasReachedCapacity && (
       <AddButtonContainer>
         <Buttons.IconButton onClick={handleNewStaffClick}>
           <img src={Images.Plus} alt="add" />
         </Buttons.IconButton>
       </AddButtonContainer>
+      )}
     </OfficeViewStyles.Container>
   );
 }
