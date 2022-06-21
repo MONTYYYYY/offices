@@ -36,11 +36,11 @@ const initialState:IOfficesState = {
   offices: [
     {
       id: 'A1',
-      companyName: 'Specno',
+      companyName: 'Apple',
       staffIDs: ['S1'],
-      email: 'info@specno.com',
-      phone: '082 364 9864',
-      location: '10 Willie Van Schoor Dr, Bo Oakdale, Cape Town, 7530',
+      email: 'info@apple.com',
+      phone: '080 044 4426',
+      location: 'Cupertino, California, United States',
       officeCapacity: 25,
       color: '#FFBE0B',
     },

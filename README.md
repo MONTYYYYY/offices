@@ -1,13 +1,7 @@
-# Spenco Tech Assessment
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Brief
- "Create an application that satisfies the following cases. The system must allow users to create and manage office space. The home page must be a view of current offices and a brief summary of the occupants. A user must then be able to add a new office. Once an office is added it must appear on the home page. If a user clicks on the office they must be able to view the office details including individuals who work at the office. The user must be able to create, update, and delete office workers. There must be a search bar on the office view page. This component must filter the list of users within the office as the user is typing. The system is designed for phones. Styles need to be put into place to stop the main view from getting too wide."
- 
- - Figma : https://www.figma.com/file/zjxFBi6BYz33lIOvm0kufG/Intermediate-Tech-Assessment?node-id=2%3A1140
- - Ojective link : https://doc.clickup.com/2607467/p/h/2fjbb-6924/1724629f64756b8/2fjbb-6984
- - Deployment Link (Hosted on Netflify) : https://specno-offices-montlamedi.netlify.app/ 
+ - Deployment Link (Hosted on Netflify) : https://offices-montlamedi.netlify.app/ 
 
 ## Notes
 
@@ -15,13 +9,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - For state management Redux Toolkit is used (https://redux-toolkit.js.org/).
 - The app is responsive across all screen sizes.
 - I hardcoded the intial data for Staff and Offices. 
-
-## Issues
-- There were no designs for tablet and Desktop. Therefore I was no sure of expected output. I tried to make it look as nice as possible.
-
-There were also a 2 design mistakes i noticed on the figma : Examples are 
-- 'Are you sure you want to Delete Staff Member?' has incorrect button names 'Keep Office' and 'Delete Office'.
-- The number of avatars icons on the edit or add staff modal does not match the total avatars provided on design.
 
 ## Available Scripts
 
